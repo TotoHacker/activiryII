@@ -1,25 +1,30 @@
 <script setup lang="ts">
 import RegisterForm from '@/components/RegisterForm.vue';
 import { useAuthStore } from '@/stores/auth';
-import {ref} from 'vue';
+import { ref } from 'vue';
+
 const isopen = ref(false);
+
 const openModal = () => {
     isopen.value = true;
 };
+
 const closeModal = () => {
     isopen.value = false;
 };
+
 const email = ref('');
 const password = ref('');
 const authStore = useAuthStore();
+
 const login = async () => {
     try {
         await authStore.login(email.value, password.value);
+        await authStore.redirectToHome();
     } catch (error) {
         console.error(error);
     }
 };
-
 </script>
 
 <template>

@@ -1,10 +1,9 @@
 <script setup lang="ts">
+  import MainNavbar from '@/components/MainNavbar.vue';
 </script>
 
 <template>
-  <main>
-    <router-view />
-  </main>
+  <MainNavbar />
 </template>
 
 <style scoped>
